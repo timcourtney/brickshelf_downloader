@@ -104,7 +104,9 @@ base_url = "https://brickshelf.com"
 print("Enter your Brickshelf username: ")
 username = input()
 start_url = "/cgi-bin/gallery.cgi?m=" + username
-local_base_path = os.path.expanduser("/brickshelf_download")
+print("Enter folder name for downloaded files: ")
+folder = input()
+local_base_path = os.path.dirname(folder)
 
 print(f"Starting download process. Files will be saved to: {local_base_path}")
 
