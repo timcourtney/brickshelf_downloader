@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import urllib.parse
 import time
 from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+from urllib3.util import Retry
 
 # Set up a session with retry logic
 session = requests.Session()
@@ -101,8 +101,10 @@ def process_gallery(base_url, url, base_path, visited=None):
 
 # Main execution
 base_url = "https://brickshelf.com"
-start_url = "/cgi-bin/gallery.cgi?m=username"
-local_base_path = os.path.expanduser("~/Desktop/brickshelf_download")
+print("Enter your Brickshelf username: ")
+username = input()
+start_url = "/cgi-bin/gallery.cgi?m=" + username
+local_base_path = os.path.expanduser("/brickshelf_download")
 
 print(f"Starting download process. Files will be saved to: {local_base_path}")
 
