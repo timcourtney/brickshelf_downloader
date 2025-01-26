@@ -27,18 +27,7 @@ This Python script downloads images from Brickshelf galleries, including all sub
 
 ## Usage
 
-1. Open the script and modify the `base_url` and `start_url` variables to point to the Brickshelf gallery you want to download:
-
-   base_url = "https://brickshelf.com"
-   start_url = "/cgi-bin/gallery.cgi?m=yourusername"
-
-2. Optionally, modify the `local_base_path` variable to change where the images will be saved:
-
-   local_base_path = os.path.expanduser("~/Desktop/brickshelf_download")
-
-3. Run the script:
-
-   python brickshelf_downloader.py
+Run the script. Enter your Brickshelf username when given a prompt.
 
 ## How It Works
 
