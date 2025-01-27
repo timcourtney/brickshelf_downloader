@@ -56,6 +56,16 @@ def process_gallery(base_url, url, base_path, visited=None):
         new_subfolders = [sf for sf in new_subfolders if sf.text.strip().lower() not in ['up', 'next', 'previous']]
         subfolders.extend(new_subfolders)
 
+        # Process direct file links
+        print(f"Processing direct file links on page: {full_url}")
+        direct_files = soup.find_all('a', href=lambda href: href and '/gallery/' in href)
+        for df in direct_files:
+            direct_link = urllib.parse.urljoin(base_url, df['href'])
+            print(f"Direct file link: {direct_link}")
+            direct_file_name = os.path.basename(direct_link)
+            download_image(direct_link, os.path.join(current_path, direct_file_name))
+            time.sleep(1)
+
         # Collect images
         new_images = soup.find_all('a', href=lambda href: href and 'i=' in href)
         images.extend(new_images)
