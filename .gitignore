@@ -2,3 +2,4 @@
 venv/
 *.bat
 *.iml
+/env
